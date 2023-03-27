@@ -1,6 +1,33 @@
-<h4><%=title%></h4>
-<style>
-    h4{
-       text-align: center;
-    }
-</style>
+<link rel="stylesheet" href="/css/home.css">
+<!-- <h4><%=title%></h4> -->
+<div class="container">
+    <div>
+        <h2>Short URL</h2>
+    </div>
+    <div class="form-container">
+        <h3 class="heading">Paste the URL here to short</h3>
+        <form action="/create-url" method="post">
+            <div>
+                <input class="inputText" type="text" placeholder="Enter your url..." required>
+            </div>
+            <input type="submit" class="inputBtn" value="Create">
+        </form>
+    </div>
+    <div class="list-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>SR</th>
+                    <th>Orignal Url</th>
+                    <th>Short Url</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
