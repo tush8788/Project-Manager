@@ -6,6 +6,8 @@ router.get('/',homeController.home);
 
 router.post('/create-url',homeController.Url);
 
-router.get('/:url',homeController.verifyUrl)
+router.get('/:url',homeController.verifyUrl);
+
+router.get('/delete/:id',homeController.deleteUrl);
 
 module.exports=router;
