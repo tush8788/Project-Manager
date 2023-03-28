@@ -7,26 +7,35 @@
     <div class="form-container">
         <h3 class="heading">Paste the URL here to short</h3>
         <form action="/create-url" method="post">
-            <div>
-                <input class="inputText" type="text" placeholder="Enter your url..." required>
+            <div class="input-group input-group-lg">
+                <input type="url" name="url" class="form-control rounded-pill" placeholder="Enter your url..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" required>
             </div>
-            <input type="submit" class="inputBtn" value="Create">
+           <center class="mt-2">
+            <div>
+                <input type="submit" class="btn btn-dark btn-outline-warning inputBtn" value="Create">
+            </div>
+           </center>
         </form>
     </div>
     <div class="list-container">
-        <table>
+        <table border="2" class="table table-striped">
             <thead>
                 <tr>
-                    <th>SR</th>
                     <th>Orignal Url</th>
                     <th>Short Url</th>
                     <th>Update</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
+                <% for(let u of urls){%>
                 <tr>
-
+                    <td><%=u.url%></td>
+                    <td><a href="<%=`${urls.serverUrl}${u.short}`%>" target="_blank"><%=`${urls.serverUrl}${u.short}`%></a></td>    
+                    <td><a href="/update/<%=u._id%>" class="btn btn-dark btn-outline-warning">Update</a></td>
+                    <td><a href="/delete/<%=u._id%>" class="btn btn-dark btn-outline-warning">Delete</a></td>
                 </tr>
+                <% } %>
             </tbody>
         </table>
     </div>

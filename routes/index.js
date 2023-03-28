@@ -4,5 +4,8 @@ const homeController = require('../controller/home_controller');
 
 router.get('/',homeController.home);
 
+router.post('/create-url',homeController.Url);
+
+router.get('/:url',homeController.verifyUrl)
 
 module.exports=router;
