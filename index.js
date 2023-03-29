@@ -5,6 +5,7 @@ const db = require('./config/mongoose');
 const passport = require('passport');
 const localStrategy = require('./config/passport-local-strategy');
 const session = require('express-session');
+const mongoStore = require('connect-mongo');
 const port = 8000;
 
 const app = express();
@@ -27,7 +28,13 @@ app.use(session({
     saveUninitialized:false,
     cookie:{
         maxAge:10000*10*60
-    }
+    },
+    store:mongoStore.create({
+        mongoUrl:process.env.MONGO_URL||"mongodb://localhost/UrlShortner",
+        autoRemove:false
+    },function(err){
+        console.log(err);
+    })
 }));
 
 app.use(passport.initialize());
