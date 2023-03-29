@@ -21,21 +21,24 @@
         <table border="2" class="table table-striped">
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>Orignal Url</th>
                     <th>Short Url</th>
                     <th>Update</th>
                     <th>Delete</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="list-container">
+                <% let counter=1 %>
                 <% for(let u of urls){%>
                 <tr id="url-<%=u._id%>">
+                    <th scope="row"><%=counter%></th>
                     <td><%=u.url%></td>
                     <td><a href="<%=`${urls.serverUrl}${u.short}`%>" target="_blank"><%=`${urls.serverUrl}${u.short}`%></a></td>    
-                    <td><a href="/update/<%=u._id%>" id="updateBtn" class="btn btn-dark btn-outline-warning">Update</a></td>
-                    <td><a href="/delete/<%=u._id%>" id="deleteUrlBtn" class="btn btn-dark btn-outline-warning">Delete</a></td>
+                    <td><a href="/update/<%=u._id%>" class="updateBtn btn btn-dark btn-outline-warning">Update</a></td>
+                    <td><a href="/delete/<%=u._id%>" class="deleteUrlBtn btn btn-dark btn-outline-warning">Delete</a></td>
                 </tr>
-                <% } %>
+                <% counter++; } %>
             </tbody>
         </table>
     </div>

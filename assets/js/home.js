@@ -1,21 +1,28 @@
 //delete url btn
-function deleteUrl(){
-    $('#deleteUrlBtn').on('click',(e)=>{
+function deleteUrl(deleteBtn){
+     $(deleteBtn).click((e)=>{
         e.preventDefault();
-        // console.log($('#deleteUrlBtn').prop('href'));
         $.ajax({
             type:"get",
-            url:$('#deleteUrlBtn').prop('href'),
+            url:$(deleteBtn).prop('href'),
             success:function(data){
-                // console.log(data.id)
                 $(`#url-${data.id}`).remove();
             },
             error:function(error){
                 console.log(error.responseText)
             }
         })
+     })
+}
+
+let convertDeleteToAjax=()=>{
+    $('#list-container>tr').each(function(){
+        let self=$(this);
+        let deleteBtn=$(' .deleteUrlBtn',self);
+        deleteUrl(deleteBtn);
     })
 }
 
 
+convertDeleteToAjax();
 deleteUrl();
