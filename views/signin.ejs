@@ -1,5 +1,15 @@
-<form action="/users/signin" method="post">
-    <input type="email" name="email" required>
-    <input type="password" name="password" id="" required>
-    <input type="submit" value="SignIn">
-</form>
+<link rel="stylesheet" href="/css/login.css">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-container">
+                <h3 class="heading">Sign In</h3><br>
+                <form action="/users/signin" method="post">
+                    <input class="form-control" placeholder="Username or Email" type="email" name="email" required><br>
+                    <input class="form-control" placeholder="Password" type="password" name="password" id="" required><br><br>
+                    <center><input type="submit" class="btn btn-dark btn-outline-warning" value="SignIn"></center>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
