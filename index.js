@@ -2,6 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const expressLayout = require('express-ejs-layouts');
 const db = require('./config/mongoose');
+const passport = require('passport');
+const localStrategy = require('./config/passport-local-strategy');
+const session = require('express-session');
 const port = 8000;
 
 const app = express();
@@ -17,6 +20,18 @@ app.use(express.static('./assets'));
 
 app.use(expressLayout);
 
+app.use(session({
+    name:"Project",
+    secret:"AnyKey",
+    resave:false,
+    saveUninitialized:false,
+    cookie:{
+        maxAge:10000*10*60
+    }
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/',require('./routes/index.js'));
 
