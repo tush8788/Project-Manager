@@ -10,4 +10,8 @@ router.get('/:url',homeController.verifyUrl);
 
 router.get('/delete/:id',homeController.deleteUrl);
 
+router.get('/update/:id',homeController.updateUrlPage);
+
+router.post('/update',homeController.updateUrl);
+
 module.exports=router;

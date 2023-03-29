@@ -18,6 +18,7 @@ module.exports.home = async(req,res) => {
     }
     
 }
+
 //create new short url
 module.exports.Url = async(req,res)=>{
     try{
@@ -35,6 +36,7 @@ module.exports.Url = async(req,res)=>{
         return res.redirect('back');
     }
 }
+
 //redirect 
 module.exports.verifyUrl = async(req,res) => {
     try{
@@ -71,8 +73,9 @@ module.exports.deleteUrl = async(req,res) => {
         return res.redirect('back');
     }
 }
+
 //update url page 
-module.exports.updateUrl=async(req,res)=>{
+module.exports.updateUrlPage=async(req,res)=>{
     try{
         let url=await ShortDB.findById(req.params.id);
         if(!url){
@@ -82,6 +85,18 @@ module.exports.updateUrl=async(req,res)=>{
             title:"UpdatePage",
             Url:url
         })
+    }
+    catch(err){
+        console.log(err);
+        return res.redirect('back');
+    }
+}
+
+//update url
+module.exports.updateUrl=async function(req,res){
+    try{
+        await ShortDB.findByIdAndUpdate(req.body.urlId,{url:req.body.url});
+        return res.redirect('/');
     }
     catch(err){
         console.log(err);

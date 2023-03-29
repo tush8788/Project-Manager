@@ -1,1 +1,14 @@
-<!-- <%=url%> -->
+<!-- <%=Url%> -->
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div>
+                <form action="/update" method="post">
+                    <input type="url" value="<%=Url.url%>" name="url" id="" required>
+                    <input type="hidden" name="urlId" value="<%=Url._id%>">
+                    <input type="submit" value="Update">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
