@@ -7,4 +7,5 @@ router.get('/sign-in',userController.signInPage);
 
 router.post('/signin',passport.authenticate('local',{failureRedirect:'/users/sign-in'}),userController.createSession);
 
+router.get('/signout',userController.signOut);
 module.exports=router;

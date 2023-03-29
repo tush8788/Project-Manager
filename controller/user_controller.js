@@ -12,3 +12,12 @@ module.exports.signInPage=function(req,res){
 module.exports.createSession=function(req,res){
     return res.redirect('/');
 }
+
+module.exports.signOut=function(req,res){
+    req.logout((err)=>{
+        if(err){
+            console.log(err);
+        }
+        return res.redirect('/');
+    })
+}
