@@ -58,7 +58,30 @@ module.exports.deleteUrl = async(req,res) => {
     try{
         // console.log(req.params);
         await ShortDB.findByIdAndDelete(req.params.id);
+        if(req.xhr){
+            return res.status(200).json({
+                message:"Delete Successfully",
+                id:req.params.id
+            });
+        }
         return res.redirect('back');
+    }
+    catch(err){
+        console.log(err);
+        return res.redirect('back');
+    }
+}
+//update url page 
+module.exports.updateUrl=async(req,res)=>{
+    try{
+        let url=await ShortDB.findById(req.params.id);
+        if(!url){
+            return res.redirect('back');
+        }
+        return res.render('updateUrlPage',{
+            title:"UpdatePage",
+            Url:url
+        })
     }
     catch(err){
         console.log(err);

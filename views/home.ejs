@@ -29,14 +29,16 @@
             </thead>
             <tbody>
                 <% for(let u of urls){%>
-                <tr>
+                <tr id="url-<%=u._id%>">
                     <td><%=u.url%></td>
                     <td><a href="<%=`${urls.serverUrl}${u.short}`%>" target="_blank"><%=`${urls.serverUrl}${u.short}`%></a></td>    
-                    <td><a href="/update/<%=u._id%>" class="btn btn-dark btn-outline-warning">Update</a></td>
-                    <td><a href="/delete/<%=u._id%>" class="btn btn-dark btn-outline-warning">Delete</a></td>
+                    <td><a href="/update/<%=u._id%>" id="updateBtn" class="btn btn-dark btn-outline-warning">Update</a></td>
+                    <td><a href="/delete/<%=u._id%>" id="deleteUrlBtn" class="btn btn-dark btn-outline-warning">Delete</a></td>
                 </tr>
                 <% } %>
             </tbody>
         </table>
     </div>
 </div>
+
+<script src="/js/home.js"></script>
