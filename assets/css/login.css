@@ -34,7 +34,8 @@ body{
     border-bottom: 2px solid gray;
     color: gray;
 }
-.btn{
+
+.btnSubmit{
     color: white;
     border-radius: 20px;
     width: 100%;
