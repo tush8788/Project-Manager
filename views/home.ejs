@@ -1,46 +1,53 @@
 <link rel="stylesheet" href="/css/home.css">
 <!-- <h4><%=title%></h4> -->
-<div class="container">
-    <div>
-        <h2>Short URL</h2>
-    </div>
-    <div class="form-container">
-        <h3 class="heading">Paste the URL here to short</h3>
-        <form action="/create-url" method="post">
-            <div class="input-group input-group-lg">
-                <input type="url" name="url" class="form-control rounded-pill" placeholder="Enter your url..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" required>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12 div1">
+            <center><h2 class="light"style="color:#fff">Short URL</h2></center> 
+            <br>
+            <div class="form-container">
+                <center><h3 class="heading">Paste the URL here to short</h3></center>
+                <br>
+                <form action="/create-url" method="post">
+                    <div class="input-group input-group-lg">
+                        <input type="url" name="url" class="inputTag rounded-0 form-control " placeholder="Enter your url..." aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" required>
+                    </div>
+                    <br>
+                   <center class="mt-2">
+                    <div>
+                        <input type="submit" class="btn btn-dark btn-outline-warning inputBtn" value="Create">
+                    </div>
+                   </center>
+                </form>
             </div>
-           <center class="mt-2">
-            <div>
-                <input type="submit" class="btn btn-dark btn-outline-warning inputBtn" value="Create">
+        </div>
+        <div class="col-12 div2">
+            <div class="list-container">
+                <table border="2" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Orignal Url</th>
+                            <th>Short Url</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list-container">
+                        <% let counter=1 %>
+                        <% for(let u of urls){%>
+                        <tr id="url-<%=u._id%>">
+                            <th scope="row"><%=counter%></th>
+                            <td><%=u.url%></td>
+                            <td><a href="<%=`${urls.serverUrl}${u.short}`%>" target="_blank"><%=`${urls.serverUrl}${u.short}`%></a></td>    
+                            <td><a href="/update/<%=u._id%>" class="updateBtn btn btn-dark btn-outline-warning">Update</a></td>
+                            <td><a href="/delete/<%=u._id%>" class="deleteUrlBtn btn btn-dark btn-outline-warning">Delete</a></td>
+                        </tr>
+                        <% counter++; } %>
+                    </tbody>
+                </table>
             </div>
-           </center>
-        </form>
-    </div>
-    <div class="list-container">
-        <table border="2" class="table table-striped">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Orignal Url</th>
-                    <th>Short Url</th>
-                    <th>Update</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody id="list-container">
-                <% let counter=1 %>
-                <% for(let u of urls){%>
-                <tr id="url-<%=u._id%>">
-                    <th scope="row"><%=counter%></th>
-                    <td><%=u.url%></td>
-                    <td><a href="<%=`${urls.serverUrl}${u.short}`%>" target="_blank"><%=`${urls.serverUrl}${u.short}`%></a></td>    
-                    <td><a href="/update/<%=u._id%>" class="updateBtn btn btn-dark btn-outline-warning">Update</a></td>
-                    <td><a href="/delete/<%=u._id%>" class="deleteUrlBtn btn btn-dark btn-outline-warning">Delete</a></td>
-                </tr>
-                <% counter++; } %>
-            </tbody>
-        </table>
+        </div>
     </div>
 </div>
 

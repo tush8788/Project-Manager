@@ -1,12 +1,16 @@
 <!-- <%=Url%> -->
+<link rel="stylesheet" href="/css/login.css">
+
+<link rel="stylesheet" href="/css/login.css">
 <div class="container">
     <div class="row">
-        <div class="col-6">
-            <div>
+        <div class="col-12">
+            <div class="form-container">
+                <h3 class="heading">Update</h3><br><br>
                 <form action="/update" method="post">
-                    <input type="url" value="<%=Url.url%>" name="url" id="" required>
-                    <input type="hidden" name="urlId" value="<%=Url._id%>">
-                    <input type="submit" value="Update">
+                    <input class="form-control" type="url" name="url" value="<%=Url.url%>" required><br>
+                    <input type="hidden" name="urlId" value="<%=Url._id%>"><br>
+                    <center><input type="submit" class="btnSubmit btn btn-dark btn-outline-warning" value="Update"></center>
                 </form>
             </div>
         </div>
