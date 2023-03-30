@@ -31,6 +31,6 @@ Managing Hosted projects
 3. then just "npm start"/ if npm start is not work just run this command 'node index.js'
 4. then go localhost:8000
 
-#This Site is hosted on vercel
+#This Site is hosted on render
 
-Access link ""
+Access link "https://projectmanager-3c33.onrender.com"
