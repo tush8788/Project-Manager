@@ -1,5 +1,5 @@
 const ShortDB = require('../models/urlShort');
-
+const shortid = require('shortid');
 //home page
 module.exports.home = async(req,res) => {
     try{
@@ -25,7 +25,8 @@ module.exports.Url = async(req,res)=>{
         let url = await ShortDB.findOne({url:req.body.url});
 
         if(!url){
-            url = await ShortDB.create(req.body);
+            req.body.short=await shortid.generate(),
+            url = await ShortDB.create(req.body,);
         }
 
         return res.redirect('back');
