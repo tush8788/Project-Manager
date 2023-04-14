@@ -34,3 +34,7 @@ Managing Hosted projects
 #This Site is hosted on render
 
 Access link "https://projectmanager-3c33.onrender.com"
+
+Home Page
+
+![plot](./assets/screenshort/home.png)
